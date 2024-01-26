@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TextEditor from '../components/TextEditor'
 
 const Dashboard = () => {
   const [isSidebarExpanded, setSidebarExpanded] = useState(false);
@@ -55,7 +56,13 @@ const Dashboard = () => {
       <div className="flex-grow">
         <nav>
           <h2>Welcome to the Dashboard</h2>
+          <p className='flex justify-end  text-right px-4 gap-4'>
+            <button className="btn btn-text text-blue-500  py-2 px-4 rounded-md outline outline-1 outline-blue-500">Preview</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Publish</button>
+          </p>
         </nav>
+
+        <TextEditor />
       </div>
     </div>
   );
