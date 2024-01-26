@@ -20,25 +20,15 @@ const Sidebar = () => {
     }
   ]
 
-
-
-  function checkParent(t, elm) {
-    while (t.parentNode) {
-      if (t == elm) {
-        return true;
-      }
-      t = t.parentNode;
-    }
-    return false;
-  }
+  
   return (
     <div>
       <div id="sidebar" className="h-screen w-16 menu bg-white hover:w-[150px] hover:shadow-md text-dark px-4  transition ease-in-out z-999 duration-300 items-center nunito static fixed shadow">
         <List className='text-dark'>
           {sidebarItems.map((item) => (
-            <a href={item.link} className="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+            <Link href={item.link} className="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
               <i className="fas fa-home fa-fw mr-3" /><span className="w-full inline-block pb-1 md:pb-0 text-sm">{item.name}</span>
-            </a>
+            </Link>
           ))}
         </List>
 
