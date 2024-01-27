@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import TextEditor from '../components/TextEditor'
 import BackBtn from '../components/BackBtn';
+import MyEditor from '../components/MyEditor'
+import Backcover from '../components/Backcover'
 
 const Dashboard = () => {
   const [isSidebarExpanded, setSidebarExpanded] = useState(false);
@@ -193,7 +195,7 @@ const Dashboard = () => {
       </div>
 
       {/* Dashboard body */}
-      <div className="tex">
+      <div className="w-full  mx-auto">
         <nav>
           <h2>Welcome to the Dashboard</h2>
           <p className='flex justify-end  text-right px-4 gap-4'>
@@ -202,7 +204,9 @@ const Dashboard = () => {
           </p>
         </nav>
 
-        <TextEditor />
+        {/* <TextEditor /> */}
+        <Backcover />
+      <MyEditor className='pt-10' />
       </div>
     </div>
   );
