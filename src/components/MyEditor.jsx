@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'quill/dist/quill.snow.css'
 import ReactQuill from 'react-quill'
 import TextEditor from './TextEditor';
 
-const MyEditor=()=>{
+const MyEditor = () => {
   var modules = {
     toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ font: [] }],
       [{ size: ["small", false, "large", "huge"] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image"],
+      ["link", "image", "video"],
       [
         { list: "ordered" },
         { list: "bullet" },
@@ -31,21 +33,39 @@ const MyEditor=()=>{
   const handleProcedureContentChange = (content) => {
     console.log("content---->", content);
   };
-  return(
-    <div>
-       <h1 style={{ textAlign: "center" }}>Article Title</h1>
-      <div style={{ display: "grid", justifyContent: "center"}}>
-        <ReactQuill
-          theme="snow"
-          modules={modules}
-          formats={formats}
-          placeholder="write your content ...."
-          onChange={handleProcedureContentChange}
-          style={{ height: "220px" }}
-        >
-        </ReactQuill>
-      </div>
+
+  const [showEditor, setShowEditor] = useState(false);
+  const toggleEditor = () => {
+    setShowEditor(!showEditor);
+  };
+  return (
+    <div className="flex flex-col items-center max-w-3xl mx-auto">
+      <input type='text' placeholder='Article Title' className='bg-transparent outline-none w-full max-w-3xl text-3xl'/>
+  {/* <h1 className="text-center">Article Title</h1> */}
+  <div className="w-full max-w-3xl mt-4">
+    <button onClick={toggleEditor} className="flex items-center">
+      {showEditor ? '' : (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      )}
+    </button>
+  </div>
+  {showEditor && (
+    <div className="w-full max-w-3xl mt-4">
+      <ReactQuill
+        theme="snow"
+        modules={modules}
+        formats={formats}
+        placeholder="Write your content ...."
+        onChange={handleProcedureContentChange}
+        
+      />
     </div>
+  )}
+</div>
+
+
   )
 }
 export default MyEditor

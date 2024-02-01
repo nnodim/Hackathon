@@ -3,6 +3,8 @@ import { useState } from 'react';
 import BackBtn from '../components/BackBtn';
 import Backcover from '../components/Backcover';
 import MyEditor from '../components/MyEditor';
+import TextEditor from '../components/TextEditor';
+import DraftEditor from '../components/DraftEditor'
 
 const Logo =
   'https://cdn.hashnode.com/res/hashnode/image/upload/v1706347092609/d328f71f-6026-4dd5-8658-18da692f0907.png';
@@ -495,7 +497,7 @@ const Dashboard = () => {
       </div>
 
       {/* Dashboard body */}
-      <div className='w-full  mx-auto'>
+      <div className='w-full  mx-auto mt-10'>
         <nav>
           <p className='flex justify-end  text-right px-4 gap-4'>
             <button className='btn btn-text text-blue-500  py-2 px-4 rounded-md outline outline-1 outline-blue-500'>
@@ -507,8 +509,9 @@ const Dashboard = () => {
           </p>
         </nav>
 
-        {/* <TextEditor /> */}
         <Backcover />
+        {/* <TextEditor /> */}
+        {/* <DraftEditor /> */}
         <MyEditor className='pt-10' />
       </div>
     </div>
